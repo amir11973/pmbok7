@@ -1,0 +1,6 @@
+{
+  "name": "PMP PMBOK 7 Quiz App",
+  "description": "A web application for PMP exam preparation based on PMBOK 7, featuring multiple-choice questions categorized by project performance domains and principles.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
