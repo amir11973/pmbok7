@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import type { User } from '@supabase/supabase-js';
 import { supabase } from './supabase';
 import { AppHeader } from './components/AppHeader';
 import { MainMenu } from './components/MainMenu';
@@ -12,7 +11,7 @@ import { ReportCard } from './components/ReportCard';
 import { LoginPage } from './components/LoginPage';
 import { UserManagementPage } from './components/UserManagementPage';
 import { LanguageProvider, useLang } from './context/LanguageContext';
-import { QuizCompletionData, Results, View, QuizMode } from './types';
+import { QuizCompletionData, Results, View, QuizMode, User } from './types';
 
 const AppContent = () => {
     const [view, setView] = useState<View>('main_menu');
@@ -27,19 +26,18 @@ const AppContent = () => {
     const { t } = useLang();
 
     useEffect(() => {
-        const getSession = async () => {
+        const checkSession = async () => {
             const { data: { session } } = await supabase.auth.getSession();
             setCurrentUser(session?.user ?? null);
             setAuthLoading(false);
         };
-
-        getSession();
+        checkSession();
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             setCurrentUser(session?.user ?? null);
         });
 
-        return () => subscription.unsubscribe();
+        return () => subscription?.unsubscribe();
     }, []);
 
     useEffect(() => {

@@ -56,16 +56,26 @@ body {
 
 .user-info {
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 150px;
+    max-width: 300px;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    opacity: 0.85;
 }
 
 .header-logo {
     height: 80px;
     width: auto;
+}
+
+.header-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 2;
 }
 
 .app-header h1 {
@@ -74,7 +84,6 @@ body {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  flex: 2;
 }
 
 .lang-switcher, .logout-btn, .user-management-btn {
@@ -1005,21 +1014,22 @@ html[dir="rtl"] .back-button {
         gap: 10px;
         padding: 15px;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
     .header-logo {
         height: 50px;
     }
+    .header-title-container {
+        text-align: center;
+        width: 100%;
+        order: 2; /* Force to second row */
+    }
     .app-header h1 {
         font-size: 1.1rem;
-        text-align: center;
-        flex-grow: 1;
-        width: 100%;
-        order: -1;
     }
     
     .header-left, .header-right {
-        flex-grow: 1;
-        justify-content: space-between;
+        order: 1; /* Force to first row */
     }
     
     .header-right {
@@ -1028,7 +1038,8 @@ html[dir="rtl"] .back-button {
 
     .user-info {
         font-size: 0.8rem;
-        max-width: 80px;
+        max-width: 90%;
+        margin-top: 2px;
     }
 
     .lang-switcher, .logout-btn, .user-management-btn {

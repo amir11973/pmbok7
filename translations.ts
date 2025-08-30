@@ -37,6 +37,7 @@ export const translations = {
     chapterHeader: { en: 'Chapter', fa: 'فصل' },
     scoreHeader: { en: 'Score', fa: 'نمره' },
     scoreOf: { en: 'of', fa: 'از' },
+    noQuizzesCompleted: { en: 'No quizzes completed yet.', fa: 'هنوز هیچ آزمونی تکمیل نشده است.' },
     // Login & Registration
     loginTitle: { en: 'Login', fa: 'ورود' },
     registerTitle: { en: 'Register', fa: 'ثبت نام' },

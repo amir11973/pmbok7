@@ -73,13 +73,13 @@ export const ReportCard = ({ results, setView, onReview }: ReportCardProps) => {
                        <h3>{t('principlesTitle')}</h3>
                        <ul className="chapter-results-list">
                             {principles.map(p => <ChapterResultItem key={p.id} item={p} result={results[p.id]} onReview={onReview} lang={lang} t={t} />)}
-                            {principles.length === 0 && <p>No quizzes completed yet.</p>}
+                            {principles.length === 0 && <p>{t('noQuizzesCompleted')}</p>}
                        </ul>
                         
                        <h3 style={{marginTop: '30px'}}>{t('domainsTitle')}</h3>
                        <ul className="chapter-results-list">
                            {domains.map(d => <ChapterResultItem key={d.id} item={d} result={results[d.id]} onReview={onReview} lang={lang} t={t} />)}
-                            {domains.length === 0 && <p>No quizzes completed yet.</p>}
+                            {domains.length === 0 && <p>{t('noQuizzesCompleted')}</p>}
                        </ul>
                     </div>
 
@@ -87,7 +87,7 @@ export const ReportCard = ({ results, setView, onReview }: ReportCardProps) => {
                         <h3>{t('comprehensiveQuizzesTitle')}</h3>
                         <ul className="chapter-results-list">
                              {comprehensive.map(c => <ChapterResultItem key={c.id} item={c} result={results[c.id]} onReview={onReview} lang={lang} t={t} />)}
-                              {comprehensive.length === 0 && <p>No quizzes completed yet.</p>}
+                              {comprehensive.length === 0 && <p>{t('noQuizzesCompleted')}</p>}
                         </ul>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import type { User } from '@supabase/supabase-js';
 import { LOGO_URL } from '../constants';
 import { useLang } from '../context/LanguageContext';
-import { View } from '../types';
+// FIX: Import User type from local types.ts as it is not exported from supabase-js v1.
+import { View, User } from '../types';
 
 interface AppHeaderProps {
     currentUser: User | null;
@@ -19,13 +19,17 @@ export const AppHeader = ({ currentUser, onLogout, setView }: AppHeaderProps) =>
         <div className="header-left">
            <img src={LOGO_URL} alt="Pars PMI Logo" className="header-logo" />
         </div>
-        <h1>{t('appTitle')}</h1>
+        <div className="header-title-container">
+            <h1>{t('appTitle')}</h1>
+            {currentUser && (
+                <span className="user-info" title={currentUser.email}>
+                    {currentUser.email}
+                </span>
+            )}
+        </div>
         <div className="header-right">
             {currentUser && (
                 <>
-                    <span className="user-info" title={currentUser.email}>
-                        {currentUser.email}
-                    </span>
                     {isAdmin && (
                         <button onClick={() => setView('user_management')} className="user-management-btn">
                             {t('userManagementTitle')}

@@ -1,5 +1,11 @@
 export type Language = 'en' | 'fa';
 
+// FIX: Define User type locally as it's not exported in supabase-js v1.
+export interface User {
+  id: string;
+  email?: string;
+}
+
 export interface LocalizedString {
   en: string;
   fa: string;
